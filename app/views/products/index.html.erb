@@ -1,0 +1,26 @@
+<%= "Logged in as  #{signed_in_as} " %>
+<table class="table table-condensed">
+<tr>
+<th>Photo</th>
+<th>Title</th>
+<th>Brand</th>
+<th>Size</th>
+</tr>
+<tr>
+  <% @product.each do |product| %>
+  <tr>
+    <td>
+      <% if not product.images.blank?%>
+      <% product.images.each do |j| %>
+      <%= image_tag j.photo(:small) %>
+      <%end%>
+      <%end%>
+    </td>
+    <td><%= product.title%></td>
+    <td><%= product.brand%></td>
+    <td><%= product.size%></td>
+    </tr>
+    <%end%>
+</tr>
+</table>
+<%= link_to "+Products", new_product_path, :class=>"btn btn-primary" %>

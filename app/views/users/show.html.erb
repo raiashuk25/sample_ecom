@@ -1,0 +1,15 @@
+<table>
+<tr>
+<th>Name</th>
+<th>Email</th>
+<th>Mobile</th>
+</tr>
+<tr>
+<td><%= @user.name   %></td>
+<td><%= @user.email  %></td>
+<td><%= @user.mobile %></td>
+<td><%= link_to "Edit", edit_user_path(@user) %></td>
+<td><%= link_to "Delete", @user, method: :delete %></td>
+</tr>
+</table>
+<td><%= link_to "+Users", new_user_path %></td>

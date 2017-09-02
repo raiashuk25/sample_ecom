@@ -1,0 +1,18 @@
+<%=form_tag action: :authenticate, method: :post do  %>
+<table class="table table-stripped">
+ <%= fields_for  User.new do |user| %>
+ <tr>
+ <td><%= user.label :email %></td>
+ <td><%= user.email_field :email %></td>
+ </tr>
+  <tr>
+ <td><%= user.label :password %></td>
+ <td><%= user.password_field :password %></td>
+ </tr>
+ <%end%>
+ <tr>
+ <td><%= submit_tag "SignIn" %></td>
+ </tr>
+</table>
+<%end%>
+<%= link_to "SignUp" , new_user_path %>
