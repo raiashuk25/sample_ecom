@@ -10,22 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170831030038) do
+ActiveRecord::Schema.define(version: 20170917193729) do
 
-  create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "photo_file_name"
     t.string "photo_content_type"
     t.integer "photo_file_size"
     t.datetime "photo_updated_at"
-    t.bigint "user_id"
-    t.bigint "product_id"
-    t.index ["product_id"], name: "index_images_on_product_id"
-    t.index ["user_id"], name: "index_images_on_user_id"
+    t.integer "entity_id"
+    t.string "entity_type"
   end
 
-  create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "title"
     t.string "brand"
     t.string "size"
@@ -34,7 +32,7 @@ ActiveRecord::Schema.define(version: 20170831030038) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "name"
     t.string "email"
     t.string "password"
@@ -44,6 +42,4 @@ ActiveRecord::Schema.define(version: 20170831030038) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "images", "products"
-  add_foreign_key "images", "users"
 end

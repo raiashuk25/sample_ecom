@@ -8,8 +8,14 @@ Bundler.require(*Rails.groups)
 
 module SampleEcom
   class Application < Rails::Application
+
+  	
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
+     Dir["#{Rails.root}/lib/*.rb"].each {|file| require file } 
+     #Dir[ #{Rails.root} + '/lib/*.rb'].each {|file| require file }
+     
+
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers

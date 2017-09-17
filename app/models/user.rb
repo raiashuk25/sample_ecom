@@ -3,7 +3,7 @@ class User < ApplicationRecord
 	validates:email, presence:true,uniqueness:true
     validates:password,presence:true,on:create
     validates:mobile,presence:true,numericality:true
-		has_one:image
+		has_one:image, as: :entity
 		accepts_nested_attributes_for :image
 		before_save :encrypt_password
 		def encrypt_password
